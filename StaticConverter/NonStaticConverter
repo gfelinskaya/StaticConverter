@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp26
+{
+    class NonStaticConverter
+    {
+        private double dollarRate;
+        private double euroRate;
+
+         NonStaticConverter()
+        {
+            dollarRate = GetDollarRate();
+            euroRate = GetEuroRate();
+        }
+
+        private double GetDollarRate()
+        {
+            return 42; // call database
+        }
+
+        private double GetEuroRate()
+        {
+            return 45; // call database
+        }
+
+        public double DallarRate 
+        {
+            get => dollarRate;
+            set => dollarRate = value;
+        }
+
+        public double EuroRate
+        {
+            get => euroRate;
+            set => euroRate = value;
+        }
+
+
+        public double ConvertEuroToHrn(double sum)
+        {
+            return euroRate * sum;
+        }
+
+        public double ConvertDollarsToHrn(double sum)
+        {
+            return dollarRate * sum;
+        }
+
+        public double ConvertHrnToEuro(double sum)
+        {
+            if (euroRate == 0)
+                return 0;   
+
+            return sum / euroRate;
+        }
+
+        public double ConvertHrnToDollars(double sum)
+        {
+            if (dollarRate == 0)
+                return 0;
+
+            return sum / dollarRate;
+        }
+
+    }
+}
