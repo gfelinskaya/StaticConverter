@@ -1,8 +1,13 @@
-static class CalculStaticConvertor
+static class StaticConvertor
 
 {
      private static double dollarRate;
     private static double euroRate;
+      static StaticConvertor()
+        {
+            dollarRate = GetDollarRate();
+            euroRate = GetEuroRate();
+        }
  private static double GetDollarRate()
         {
             return 42; // call database
@@ -11,6 +16,17 @@ static class CalculStaticConvertor
         private static double GetEuroRate()
         {
             return 45; // call database
+        }
+       public static double DallarRate 
+        {
+            get => dollarRate;
+            set => dollarRate = value;
+        }
+
+        public static double EuroRate
+        {
+            get => euroRate;
+            set => euroRate = value;
         }
 public static double ConvertEuroToHrn(double sum)
         {

@@ -10,6 +10,7 @@ namespace ConsoleApp26
     {
         private double dollarRate;
         private double euroRate;
+        private string operatorName;
 
          NonStaticConverter()
         {
@@ -38,7 +39,11 @@ namespace ConsoleApp26
             get => euroRate;
             set => euroRate = value;
         }
-
+        public string OperatorName
+        {
+            get => operatorName;
+            set => operatorName = value;
+        }
 
         public double ConvertEuroToHrn(double sum)
         {
