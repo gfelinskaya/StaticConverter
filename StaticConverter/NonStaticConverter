@@ -44,6 +44,11 @@ namespace ConsoleApp26
             get => operatorName;
             set => operatorName = value;
         }
+        public {} OperationLog
+        {
+            get => euroRate;
+            set => euroRate = value;
+        }
 
         public double ConvertEuroToHrn(double sum)
         {
